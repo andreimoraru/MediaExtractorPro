@@ -100,7 +100,7 @@ def setup(hass: HomeAssistantType, hass_config):
 
         _LOGGER.debug(f"Play {url}")
 
-        hass.async_create_task(hass.services.async_call(
+        hass.create_task(hass.services.async_call(
             MEDIA_PLAYER_DOMAIN, SERVICE_PLAY_MEDIA, {
                 ATTR_MEDIA_CONTENT_ID: url,
                 ATTR_ENTITY_ID: entity_id,
