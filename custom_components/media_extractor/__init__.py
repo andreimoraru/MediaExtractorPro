@@ -13,7 +13,7 @@ from homeassistant.const import ATTR_ENTITY_ID
 from homeassistant.core import ServiceCall
 from homeassistant.helpers.network import get_url, NoURLAvailableError
 from homeassistant.helpers.typing import HomeAssistantType
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 
 from pychromecast.controllers.media import MediaController
 
@@ -96,11 +96,11 @@ def setup(hass: HomeAssistantType, hass_config):
         else:
             ydl.params['format'] = custom.get(content_type, def_format)
             media = ydl.process_ie_result(media, download=False)
-            url = media['url']
+            url = media['webpage_url']
 
         _LOGGER.debug(f"Play {url}")
 
-        hass.async_create_task(hass.services.async_call(
+        hass.create_task(hass.services.async_call(
             MEDIA_PLAYER_DOMAIN, SERVICE_PLAY_MEDIA, {
                 ATTR_MEDIA_CONTENT_ID: url,
                 ATTR_ENTITY_ID: entity_id,
