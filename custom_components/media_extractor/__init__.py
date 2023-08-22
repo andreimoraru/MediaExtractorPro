@@ -96,7 +96,7 @@ def setup(hass: HomeAssistantType, hass_config):
         else:
             ydl.params['format'] = custom.get(content_type, def_format)
             media = ydl.process_ie_result(media, download=False)
-            url = media['webpage_url']
+            url = media['url']
 
         _LOGGER.debug(f"Play {url}")
 
