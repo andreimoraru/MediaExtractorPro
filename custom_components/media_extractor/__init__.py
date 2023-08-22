@@ -63,7 +63,7 @@ def setup(hass: HomeAssistantType, hass_config):
         """Generate url to process direct link to media"""
         return base_url + parse.urlencode({
             'ie_key': media['ie_key'] if media['ie_key'] else '',
-            'url': media['1url'],
+            'url': media['url'],
             'format': format_,
             'token': token
         })
