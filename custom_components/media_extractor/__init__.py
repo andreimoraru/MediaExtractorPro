@@ -63,7 +63,7 @@ def setup(hass: HomeAssistantType, hass_config):
         """Generate url to process direct link to media"""
         return base_url + parse.urlencode({
             'ie_key': media['ie_key'] if media['ie_key'] else '',
-            'url': media['url'],
+            'url': media['webpage_url'],
             'format': format_,
             'token': token
         })
@@ -96,7 +96,7 @@ def setup(hass: HomeAssistantType, hass_config):
         else:
             ydl.params['format'] = custom.get(content_type, def_format)
             media = ydl.process_ie_result(media, download=False)
-            url = media['url']
+            url = media['webpage_url']
 
         _LOGGER.debug(f"Play {url}")
 
