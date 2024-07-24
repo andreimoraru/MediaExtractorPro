@@ -5,7 +5,7 @@
   "issue_tracker": "https://github.com/AlexxIT/MediaExtractorPro/issues",
   "codeowners": ["@AlexxIT"],
   "dependencies": ["media_player"],
-  "requirements": ["yt_dlp>=2023.3.4"],
+  "requirements": ["youtube_dl>=2021.04.26"],
   "version": "1.0.1",
   "iot_class": "calculated"
 }
